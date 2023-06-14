@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+
+
+        <!-- start: Meta -->
+
+        <meta charset="utf-8">
+
+        <title>Nexthealth</title>
+
+        <meta name="description" content="Shop Admin Panel Dashboard">
+
+        <meta name="author" content="">
+
+        <meta name="keyword" content="Shop Admin Panel Dashboard">
+
+        <!-- end: Meta -->
+
+
+
+        <!-- start: Mobile Specific -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- end: Mobile Specific -->
+
+
+
+        <!-- start: CSS -->
+
+        <link id="bootstrap-style" href="<?php echo base_url()?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="<?php echo base_url()?>assets/admin/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+        <link id="base-style" href="<?php echo base_url()?>assets/admin/css/style.css" rel="stylesheet">
+
+        <link id="base-style-responsive" href="<?php echo base_url()?>assets/admin/css/style-responsive.css" rel="stylesheet">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+
+        <!-- end: CSS -->
+
+
+
+
+
+        <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+
+        <!--[if lt IE 9]>
+
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
+                <link id="ie-style" href="<?php echo base_url()?>assets/admin/css/ie.css" rel="stylesheet">
+
+        <![endif]-->
+
+
+
+        <!--[if IE 9]>
+
+                <link id="ie9style" href="<?php echo base_url()?>assets/admin/css/ie9.css" rel="stylesheet">
+
+        <![endif]-->
+
+
+
+        <!-- start: Favicon -->
+
+        <link rel="shortcut icon" href="<?php echo base_url()?>assets/admin/img/favicon.jpg">
+
+        <!-- end: Favicon -->
+
+        <link href='<?php echo base_url()?>assets/admin/select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
+
+
+
+        
+
+
+
+
+
+    </head>
+
+
+
+    <body>
+
+        <!-- start: Header -->
+
+        <div class="navbar">
+
+            <div class="navbar-inner">
+
+                <div class="container-fluid">
+
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+
+                        <span class="icon-bar"></span>
+
+                        <span class="icon-bar"></span>
+
+                        <span class="icon-bar"></span>
+
+                    </a>
+
+                    <a class="brand" href="<?php echo base_url('dashboard')?>"><span>Nexthealth Admin Panel</span></a>
+
+
+
+                    <!-- start: Header Menu -->
+
+                    <div class="nav-no-collapse header-nav">
+
+                        <ul class="nav pull-right">
+
+                           
+
+                            <li class="dropdown">
+
+                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+
+                                    <i class="halflings-icon white user"></i> <?php echo $this->session->userdata('user_name');?>
+
+                                    <span class="caret"></span>
+
+                                </a>
+
+                                <ul class="dropdown-menu">
+
+                                    <li class="dropdown-menu-title">
+
+                                        <span>Account Settings</span>
+
+                                    </li>
+
+                                    <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+
+                                    <li><a href="<?php echo base_url('logout')?>"><i class="halflings-icon off"></i> Logout</a></li>
+
+                                </ul>
+
+                            </li>
+
+                            <!-- end: User Dropdown -->
+
+                        </ul>
+
+                    </div>
+
+                    <!-- end: Header Menu -->
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- start: Header -->
+
+
+
+        <div class="container-fluid-full">
+
+            <div class="row-fluid">
+
+
+
+                <!-- start: Main Menu -->
+
+                <div id="sidebar-left" class="span2">
+
+                    <div class="nav-collapse sidebar-nav">
+
+                        <ul class="nav nav-tabs nav-stacked main-menu">
+
+
+
+                                                        
+
+                            <li><a href="<?php echo base_url('dashboard')?>"><i class="icon-dashboard"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+
+                            <li>
+
+                                <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Products</span></a>
+
+                                <ul style="display: none;">
+
+                                    <li><a href="<?php echo base_url('add/product')?>"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Add</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/product/1')?>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Manage</span></a></li>
+
+                                </ul>   
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Customer</span></a>
+
+                                <ul style="display: none;">
+
+                                    <li><a href="<?php echo base_url('add/customer')?>"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Add</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/customer')?>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Manage</span></a></li>
+
+                                    <li><a href="<?php echo base_url('add/customer/groups')?>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Groups Add</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/customer/groups')?>"><i class="icon-eye-open"></i><span class="hidden-tablet"> Groups Manage</span></a></li>
+
+                                </ul>   
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Categories & Brands</span></a>
+
+                                <ul style="display: none;">
+
+                                    <li><a href="<?php echo base_url('add/category')?>"><i class="icon-th"></i><span class="hidden-tablet"> Add Category</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/category')?>"><i class="icon-tasks"></i><span class="hidden-tablet"> Manage Category</span></a></li>
+
+                                    <li><a href="<?php echo base_url('add/brand')?>"><i class="icon-edit"></i><span class="hidden-tablet"> Add Brand</span></a></li>
+
+                                    <li><a href="<?php echo base_url('add/sub_brand')?>"><i class="icon-edit"></i><span class="hidden-tablet"> Add Sub Brand</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/brand')?>"><i class="icon-list-alt"></i><span class="hidden-tablet"> Manage Brand</span></a></li>
+
+                                </ul>
+
+                                
+
+                            </li>   
+
+                            <li>
+
+                                <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Deals</span></a>
+
+                                <ul style="display: none;">
+
+                                    <li><a href="<?php echo base_url('add/deal')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Add Deals</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/deals')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Manage Deals</span></a></li>
+                                    <li><a href="<?php echo base_url('manage/special_discounts')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Manage Special Discounts</span></a></li>
+                                    <li><a href="<?php echo base_url('manage/add_special_discounts')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Add Special Discounts</span></a></li>
+                                    <li><a href="<?php echo base_url('manage/lab_test')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Manage Lab Test</span></a></li>
+                                    <li><a href="<?php echo base_url('manage/add_lab_test')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Add Lab Test</span></a></li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Orders</span></a>
+
+                                <ul style="display: none;">
+
+                                    <li><a href="<?php echo base_url('manage/order/1');?>"><i class="icon-calendar"></i><span class="hidden-tablet"> Manage Order</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/cancelled_order');?>"><i class="icon-calendar"></i><span class="hidden-tablet"> Cancelled Order</span></a></li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Shipping</span></a>
+
+                                <ul style="display: none;">
+
+                                    <li><a href="<?php echo base_url('manage/price_slot')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Price slot</span></a></li>
+
+                                <li><a href="<?php echo base_url('manage/shipping_methods')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Shipping</span></a></li>
+
+                                <li><a href="<?php echo base_url('manage/payment_methods')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Payment Methods</span></a></li>
+
+                                <li><a href="<?php echo base_url('manage/cities')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Cities</span></a></li>
+
+                                <li><a href="<?php echo base_url('manage/courier_companies')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Courier Comapnies</span></a></li>
+
+                                </ul>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropmenu" href="#"><i class="icon-shopping-cart"></i><span class="hidden-tablet"> Site Management</span></a>
+
+                                <ul style="display: none;">
+
+                                    <li><a href="<?php echo base_url('add/slider')?>"><i class="icon-font"></i><span class="hidden-tablet"> Add Slider</span></a></li>
+
+                                    <li><a href="<?php echo base_url('manage/slider')?>"><i class="icon-picture"></i><span class="hidden-tablet"> Manage Slider</span></a></li>
+
+                                    <li><a href="<?php echo base_url('theme/option');?>"><i class="icon-align-justify"></i><span class="hidden-tablet"> Theme Option</span></a></li>
+
+                                    <!-- <li><a href="<?php echo base_url('manage/user_management')?>"><i class="icon-picture"></i><span class="hidden-tablet"> User Management</span></a></li> -->
+
+                                </ul>
+
+                            </li>
+
+                            
+
+                            
+
+                
+
+                            
+
+                            
+
+                            
+
+                            
+
+                            
+
+
+
+
+
+
+
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- end: Main Menu -->
+
+
+
+                <noscript>
+
+                <div class="alert alert-block span10">
+
+                    <h4 class="alert-heading">Warning!</h4>
+
+                    <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+
+                </div>
+
+                </noscript>
+
+                
+
+                <?php echo $maincontent;?>
+
+               
+
+            </div><!--/#content.span10-->
+
+        </div><!--/fluid-row-->
+
+
+
+        <div class="modal hide fade" id="myModal">
+
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal">×</button>
+
+                <h3>Settings</h3>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>Here settings can be configured...</p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <a href="#" class="btn" data-dismiss="modal">Close</a>
+
+                <a href="#" class="btn btn-primary">Save changes</a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="clearfix"></div>
+
+
+
+        <footer>
+
+
+
+            <p> <center>
+
+                <span>&copy; <?php echo date("Y"); ?> Developed By Softech Systems</span>
+
+
+
+            </p></center>
+
+
+
+        </footer>
+
+
+
+        <!-- start: JavaScript-->
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery-1.9.1.min.js"></script>
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery-migrate-1.0.0.min.js"></script>
+
+
+
+        <!-- <script src="<?php echo base_url()?>assets/admin/js/jquery-ui-1.10.0.custom.min.js"></script> -->
+
+
+
+        <!-- <script src="<?php echo base_url()?>assets/admin/js/jquery.ui.touch-punch.js"></script> -->
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/modernizr.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/bootstrap.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.cookie.js"></script>
+
+
+
+        <script src='<?php echo base_url()?>assets/admin/js/fullcalendar.min.js'></script>
+
+
+
+        <script src='<?php echo base_url()?>assets/admin/js/jquery.dataTables.min.js'></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/excanvas.js"></script>
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.flot.js"></script>
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.flot.pie.js"></script>
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.flot.stack.js"></script>
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.flot.resize.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.chosen.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.uniform.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.cleditor.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.noty.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.elfinder.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.raty.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.iphone.toggle.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.uploadify-3.1.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.gritter.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.imagesloaded.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.masonry.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.knob.modified.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/jquery.sparkline.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/counter.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/retina.js"></script>
+
+        <script src="<?php echo base_url()?>assets/admin/select2/dist/js/select2.min.js"></script>
+
+
+
+        <script src="<?php echo base_url()?>assets/admin/js/custom.js"></script>
+
+
+
+        <!---->
+
+        <script type="text/javascript">
+
+            $('#search_text1').keyup(function(){
+
+
+
+    // load_data();
+
+    var search = $(this).val();
+
+  
+
+      if(search != '')
+
+       {
+
+        load_data(search);
+
+       }
+
+      function load_data(query)
+
+      {
+
+       $.ajax({
+
+        url:"<?php echo base_url(); ?>ManageOrder/ajaxsearch",
+
+        method:"POST",
+
+        data:{query:query},
+
+        success:function(data){
+
+          $('#results').show();   
+
+         $('#results').html(data);
+
+        }
+
+       })
+
+      }
+
+     });
+
+       
+
+        </script>
+
+        <!-- end: JavaScript-->
+
+
+
+    </body>
+
+</html>
+
